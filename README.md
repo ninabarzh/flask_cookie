@@ -1,49 +1,51 @@
-# flask_cookie-api
+# Cookiecutter Flask API
 
-API (backend python) para o frontend do flask_cookie-clone
+API (backend python) for the flask_cookie-clone frontend. Built with [Cookiecutter flask OpenAPI](https://github.com/huogerac/cookiecutter-flask-openapi/
+)
 
 ## Setup
 
-- criar virtualenv
-- `pip install -r requirements-dev.txt`
+Install dependencies:
 
-## Rodar testes
-
-```
-make run_tests
+```bash
+$ pip install -r requirements-dev.txt
 ```
 
-OU
+Run tests:
 
+```bash
+$ make run_tests
 ```
 
-make db_test_up
-pytest
-make db_test_down
+Or:
 
+```bash
+$ make db_test_up
+$ pytest
+$ make db_test_down
 ```
 
-## Rodar API
+Run the API:
 
-```
-docker-compose up -d
-flask db upgrade     # 1a vez apenas
-flask run
+```bash
+$ docker-compose up -d
+$ flask db upgrade     # 1a vez apenas
+$ flask run
 ```
 
 👉 http://localhost:5000/api/
 👉 http://localhost:5000/api/news
 
-## Próximos passos
+## Next steps
 
 - https://github.com/confraria-devpro/flask_cookie-api/issues
 
-## Adicionando uma notícia
+## Adding a news item example
 
 ```
 flask shell
 
-Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Python 3.9.5 (...)
 
 from flask_cookie.ext.database import db
 from flask_cookie.models.news import News
