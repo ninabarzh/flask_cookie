@@ -1,8 +1,7 @@
-# Cookiecutter installation
+# Cookiecutter installation flask
 
-```
+```bash
 $ cookiecutter https://github.com/huogerac/cookiecutter-flask-openapi/
-You've downloaded /home/nina/.cookiecutters/cookiecutter-flask-openapi before. Is it okay to delete and re-download it? [yes]: y
 project_name [Hackernews Clone]: Flask cookie project
 project_slug [flask_cookie_project]: flask_cookie
 description [The Ultimate Flask Template]: Playing around
@@ -33,7 +32,7 @@ version [0.1.0]:
  [SUCCESS]: 🐍 Your project is created! ✨ 🍰 ✨
 
 
-What's next?
+What is next?
      cd flask_cookie
      Check the README_DOCKER 🐳
      Check the README_VIRTUALENV 🐍
