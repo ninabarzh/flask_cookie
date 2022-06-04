@@ -1,0 +1,36 @@
+version: "2.4"
+services:
+
+  postgres_local:
+    container_name: "flask_cookie-postgres_local"
+    # network_mode: host
+    image: "postgres:14.1"
+    env_file:
+      - .env
+    ports:
+      - "54320:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+  backend_api:
+    container_name: flask_cookie-api
+    network_mode: host
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: development
+    environment:
+      FLASK_APP: flask_cookie.app
+      FLASK_ENV: development
+      FLASK_SECRET_KEY: ijhsabfgiipfhsiufhewi
+      C_FORCE_ROOT: "y"
+      DATABASE_URI: postgresql://flask_cookie:flask_cookie@postgres_local:54320/flask_cookie_dblocal
+    volumes:
+      - ./:/app
+    ports:
+      - "5000:5000"
+    tty: true
+    depends_on:
+      - postgres_local
+volumes:
+  postgres_data:

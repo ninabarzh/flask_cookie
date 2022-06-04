@@ -1,0 +1,10 @@
+version: "2.4"
+services:
+  postgres_test:
+    container_name: "flask_cookie-postgres-test"
+    # network_mode: host
+    image: "postgres:14.1"
+    env_file:
+      - .env.test
+    ports:
+      - "54321:5432"
